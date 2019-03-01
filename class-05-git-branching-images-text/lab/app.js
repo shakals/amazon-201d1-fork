@@ -87,12 +87,23 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+  var result = [0, ''];
 
+  for (var i = 0;i < sumArr.length;i++){
+    result[0] = sum(result[0], sumArr[i])[0];
+    result[1] = result[1] + sumArr[i] + ',';
+  }
+
+  //Remove the last concatenated comma from the string.
+  result[1] = result[1].slice(0,-1);
+
+  result[1] = result[1] + ' was passed in as an array of numbers, and ' + result[0] + ' is their sum.';
+  return result;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
