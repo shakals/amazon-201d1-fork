@@ -119,11 +119,22 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+  var result = [1, ''];
 
+  for (var i = 0;i < multArr.length;i++){
+    result[0] = multiply(result[0], multArr[i])[0];
+    result[1] = result[1] + multArr[i] + ',';
+  }
+
+  //Remove the last concatenated comma from the string.
+  result[1] = result[1].slice(0,-1);
+
+  result[1] = 'The numbers ' + result[1] + ' have a product of ' + result[0] + '.';
+  return result;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
